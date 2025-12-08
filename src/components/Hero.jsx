@@ -1,6 +1,5 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import heroVideo from '../assets/teste.mp4';
 
 const Hero = () => {
     const { t } = useLanguage();
@@ -12,12 +11,14 @@ const Hero = () => {
                 <div className="relative w-full h-full">
                     {/* Local video background */}
                     <video
-                        src={heroVideo}
+                        src="/videos/teste.mp4"
                         autoPlay
-                        loop
                         muted
+                        loop
                         playsInline
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.77vh] min-w-full min-h-[56.25vw] h-full object-cover pointer-events-none"
+                        preload="auto"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                     />
                 </div>
             </div>
