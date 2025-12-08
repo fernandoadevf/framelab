@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Hero = () => {
     const { t } = useLanguage();
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (video) {
+            // Force play on mobile devices
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // Auto-play was prevented, try again on user interaction
+                    console.log('Autoplay prevented:', error);
+                    document.addEventListener('touchstart', () => {
+                        video.play();
+                    }, { once: true });
+                });
+            }
+        }
+    }, []);
     return (
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
             {/* Video Background */}
@@ -11,6 +29,7 @@ const Hero = () => {
                 <div className="relative w-full h-full">
                     {/* Local video background */}
                     <video
+                        ref={videoRef}
                         src="/videos/teste.mp4"
                         autoPlay
                         muted
@@ -19,6 +38,7 @@ const Hero = () => {
                         webkit-playsinline="true"
                         x5-playsinline="true"
                         preload="auto"
+                        controls={false}
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                     />
