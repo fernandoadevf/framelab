@@ -1,37 +1,47 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play } from 'lucide-react';
-
-const services = [
-    { id: 1, title: 'Projetos Virais', videoId: '1144618371' },
-    { id: 2, title: 'Real Estate', videoId: '1144619382' },
-    { id: 3, title: 'Construção', videoId: '1144620712' },
-    { id: 4, title: 'Marketing Imobiliário', videoId: '1140890699' },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const WhatWeDo = () => {
+    const { t } = useLanguage();
+
+    // Define services inside component to access translations
+    const services = [
+        { id: 1, title: t('service_viral'), videoId: '1144618371' },
+        { id: 2, title: t('service_real_estate'), videoId: '1144619382' },
+        { id: 3, title: t('service_construction'), videoId: '1144620712' },
+        { id: 4, title: t('service_marketing'), videoId: '1140890699' },
+    ];
+
     const [activeService, setActiveService] = useState(services[0]);
 
     return (
         <section className="bg-[#F0F0F0] text-black lg:min-h-screen relative z-20 flex flex-col">
 
-            {/* Introduction Header (Shared) */}
-            <div className="container mx-auto px-6 pt-16 lg:pt-24 pb-8 lg:pb-0">
+            {/* Introduction Header (Mobile Only) */}
+            <div className="container mx-auto px-6 pt-16 pb-8 lg:hidden">
                 <div className="max-w-xl">
-                    <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 lg:mb-6">O Que Fazemos</h2>
-                    <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal mb-6 lg:mb-8 leading-tight tracking-tight">
-                        Elementos visuais que<br /> definem o design.
-                    </h3>
+                    <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">{t('what_we_do_eyebrow')}</h2>
+                    <h3 className="text-3xl sm:text-4xl font-normal mb-6 leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('what_we_do_title') }} />
                     <p className="text-gray-600 text-lg leading-relaxed max-w-md">
-                        Fazemos parceria com agentes imobiliários, arquitetos, incorporadores e construtores para criar filmes que elevam o design, inspiram ação e vão além do horizonte.
+                        {t('what_we_do_desc')}
                     </p>
                 </div>
             </div>
 
             {/* --- DESKTOP VIEW (Click & Swap) --- */}
-            <div className="hidden lg:flex flex-row flex-1">
+            <div className="hidden lg:flex flex-row flex-1 h-screen">
                 {/* Left Content List */}
-                <div className="w-1/2 flex items-center justify-center p-24">
+                <div className="w-1/2 flex flex-col justify-center p-24 bg-[#F0F0F0]">
+                    <div className="max-w-xl w-full mb-12">
+                        <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">{t('what_we_do_eyebrow')}</h2>
+                        <h3 className="text-5xl lg:text-6xl font-normal mb-8 leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('what_we_do_title') }} />
+                        <p className="text-gray-600 text-lg leading-relaxed max-w-md">
+                            {t('what_we_do_desc')}
+                        </p>
+                    </div>
+
                     <div className="max-w-xl w-full space-y-6">
                         {services.map((item) => (
                             <div
