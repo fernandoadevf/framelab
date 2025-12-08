@@ -71,10 +71,12 @@ const WhatWeDo = () => {
                         >
                             <div className="absolute inset-0 bg-black/10 z-10" />
                             <iframe
-                                src={`https://player.vimeo.com/video/${activeService.videoId}?autoplay=1&loop=1&background=1&title=0&byline=0&portrait=0&muted=1`}
+                                src={`https://player.vimeo.com/video/${activeService.videoId}?muted=1&autoplay=1&loop=1&title=0&byline=0&portrait=0`}
                                 className="absolute top-1/2 left-1/2 w-[177.77vh] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                                 allow="autoplay; fullscreen; picture-in-picture"
                                 allowFullScreen
+                                webkitallowfullscreen
+                                mozallowfullscreen
                                 frameBorder="0"
                             ></iframe>
                             <div className="absolute bottom-10 left-10 z-20 w-12 h-12 bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white">
@@ -94,10 +96,12 @@ const WhatWeDo = () => {
                             <div className="absolute inset-0 bg-black/10 z-10 pointer-events-none" />
                             {/* Mobile carousel video */}
                             <iframe
-                                src={`https://player.vimeo.com/video/${item.videoId}?autoplay=1&loop=1&background=1&title=0&byline=0&portrait=0&muted=1`}
+                                src={`https://player.vimeo.com/video/${item.videoId}?muted=1&autoplay=1&loop=1&title=0&byline=0&portrait=0`}
                                 className="w-full h-full"
                                 allow="autoplay; fullscreen; picture-in-picture"
                                 allowFullScreen
+                                webkitallowfullscreen
+                                mozallowfullscreen
                                 frameBorder="0"
                             ></iframe>
                             <div className="absolute bottom-4 left-4 z-20 w-10 h-10 bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white pointer-events-none">

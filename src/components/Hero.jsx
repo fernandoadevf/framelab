@@ -9,12 +9,14 @@ const Hero = () => {
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <div className="absolute inset-0 bg-black/30 z-10" />
                 <div className="relative w-full h-full">
-                    {/* Desktop Video - background=1 for autoplay */}
+                    {/* Video with mobile compatibility */}
                     <iframe
-                        src="https://player.vimeo.com/video/1144626131?muted=1&autoplay=1&dnt=1&loop=1&background=1&app_id=122963"
+                        src="https://player.vimeo.com/video/1144626131?muted=1&autoplay=1&loop=1&dnt=1&app_id=122963"
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.77vh] min-w-full min-h-[56.25vw] h-full pointer-events-none"
                         allow="autoplay; fullscreen; picture-in-picture"
                         allowFullScreen
+                        webkitallowfullscreen
+                        mozallowfullscreen
                         frameBorder="0"
                     ></iframe>
                 </div>
