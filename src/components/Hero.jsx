@@ -16,6 +16,8 @@ const Hero = () => {
                         muted
                         loop
                         playsInline
+                        webkit-playsinline="true"
+                        x5-playsinline="true"
                         preload="auto"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
