@@ -9,25 +9,13 @@ const Hero = () => {
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <div className="absolute inset-0 bg-black/30 z-10" />
                 <div className="relative w-full h-full">
-                    {/* 
-                      Responsive Video Cover Logic:
-                      - We need the video to Cover the screen. 
-                      - Since it's 16:9, we enforce:
-                        1. Min width 100% and Min height 100% (to cover)
-                        2. If screen is wide (landscape), height = 56.25vw is too small if aspect < 16:9. No, wait.
-                        
-                        Robust logic:
-                        - Width = 100vw, Height = 56.25vw. If Height < 100vh, then scaling up is needed.
-                        - Instead of complex calc, we use the "oversize" technique:
-                        - w-[177.77vh] ensures width is enough to cover height.
-                        - min-w-full ensures width covers width.
-                        - h-[56.25vw] ensures height is enough to cover width.
-                        - min-h-full ensures height covers height.
-                    */}
+                    {/* Desktop Video - background=1 for autoplay */}
                     <iframe
                         src="https://player.vimeo.com/video/1144626131?muted=1&autoplay=1&dnt=1&loop=1&background=1&app_id=122963"
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.77vh] min-w-full min-h-[56.25vw] h-full pointer-events-none object-cover"
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.77vh] min-w-full min-h-[56.25vw] h-full pointer-events-none"
                         allow="autoplay; fullscreen; picture-in-picture"
+                        allowFullScreen
+                        frameBorder="0"
                     ></iframe>
                 </div>
             </div>

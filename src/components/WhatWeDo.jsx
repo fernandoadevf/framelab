@@ -92,10 +92,10 @@ const WhatWeDo = () => {
                         {/* Video Card */}
                         <div className="w-full aspect-video bg-black rounded-2xl overflow-hidden relative shadow-lg">
                             <div className="absolute inset-0 bg-black/10 z-10 pointer-events-none" />
-                            {/* Mobile video: Autoplay muted for 'alive' feel, native controls hidden via background=1 */}
+                            {/* Mobile carousel video */}
                             <iframe
                                 src={`https://player.vimeo.com/video/${item.videoId}?autoplay=1&loop=1&background=1&title=0&byline=0&portrait=0&muted=1`}
-                                className="w-full h-full relative z-0"
+                                className="w-full h-full"
                                 allow="autoplay; fullscreen; picture-in-picture"
                                 allowFullScreen
                                 frameBorder="0"
