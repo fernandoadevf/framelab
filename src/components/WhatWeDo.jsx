@@ -71,7 +71,7 @@ const WhatWeDo = () => {
                         >
                             <div className="absolute inset-0 bg-black/10 z-10" />
                             <iframe
-                                src={`https://player.vimeo.com/video/${activeService.videoId}?muted=1&autoplay=1&loop=1&title=0&byline=0&portrait=0`}
+                                src={`https://player.vimeo.com/video/${activeService.videoId}?muted=1&autoplay=1&loop=1&playsinline=1&title=0&byline=0&portrait=0`}
                                 className="absolute top-1/2 left-1/2 w-[177.77vh] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                                 allow="autoplay; fullscreen; picture-in-picture"
                                 allowFullScreen
@@ -96,7 +96,7 @@ const WhatWeDo = () => {
                             <div className="absolute inset-0 bg-black/10 z-10 pointer-events-none" />
                             {/* Mobile carousel video */}
                             <iframe
-                                src={`https://player.vimeo.com/video/${item.videoId}?muted=1&autoplay=1&loop=1&title=0&byline=0&portrait=0`}
+                                src={`https://player.vimeo.com/video/${item.videoId}?muted=1&autoplay=1&loop=1&playsinline=1&title=0&byline=0&portrait=0`}
                                 className="w-full h-full"
                                 allow="autoplay; fullscreen; picture-in-picture"
                                 allowFullScreen
