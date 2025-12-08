@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import heroVideo from '../assets/Sequência 01_2.mp4';
+import heroVideo from '../assets/teste.mp4';
 
 const Hero = () => {
     const { t } = useLanguage();
