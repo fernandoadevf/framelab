@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import VimeoPlayer from './VimeoPlayer';
 
 const WhatWeDo = () => {
     const { t } = useLanguage();
 
     // Define services inside component to access translations
     const services = [
-        { id: 1, title: t('service_viral'), videoId: '1144618371' },
+        { id: 1, title: t('service_viral'), videoId: '1144626131' },
         { id: 2, title: t('service_real_estate'), videoId: '1144619382' },
         { id: 3, title: t('service_construction'), videoId: '1144620712' },
         { id: 4, title: t('service_marketing'), videoId: '1140890699' },
@@ -59,7 +60,7 @@ const WhatWeDo = () => {
                 </div>
 
                 {/* Right Video Display */}
-                <div className="w-1/2 h-auto relative bg-black overflow-hidden">
+                <div className="w-1/2 h-full relative bg-black overflow-hidden" style={{ height: '100vh', minHeight: '100vh' }}>
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeService.videoId}
@@ -68,45 +69,38 @@ const WhatWeDo = () => {
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.5 }}
                             className="absolute inset-0 w-full h-full"
+                            style={{ width: '100%', height: '100%', minHeight: '100%' }}
                         >
-                            <div className="absolute inset-0 bg-black/10 z-10" />
-                            <iframe
-                                src={`https://player.vimeo.com/video/${activeService.videoId}?muted=1&autoplay=1&loop=1&playsinline=1&title=0&byline=0&portrait=0`}
-                                className="absolute top-1/2 left-1/2 w-[177.77vh] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-                                allow="autoplay; fullscreen; picture-in-picture"
-                                allowFullScreen
-                                webkitallowfullscreen
-                                mozallowfullscreen
-                                frameBorder="0"
-                            ></iframe>
-                            <div className="absolute bottom-10 left-10 z-20 w-12 h-12 bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white">
-                                <Play size={16} fill="currentColor" />
-                            </div>
+                            <VimeoPlayer
+                                videoId={activeService.videoId}
+                                variant="fill"
+                            />
+                            <div className="absolute inset-0 bg-black/10 z-10 pointer-events-none" />
                         </motion.div>
                     </AnimatePresence>
                 </div>
             </div>
 
             {/* --- MOBILE VIEW (Swipe Carousel) --- */}
-            <div className="lg:hidden w-full overflow-x-auto snap-x snap-mandatory flex space-x-4 px-6 pb-8 no-scrollbar">
+            <div 
+                className="lg:hidden w-full overflow-x-auto snap-x snap-mandatory flex space-x-4 px-6 pb-8 no-scrollbar"
+                style={{
+                    WebkitOverflowScrolling: 'touch',
+                    scrollBehavior: 'smooth',
+                    touchAction: 'pan-x',
+                }}
+            >
                 {services.map((item) => (
                     <div key={item.id} className="snap-center shrink-0 w-[85vw] flex flex-col space-y-4">
                         {/* Video Card */}
                         <div className="w-full aspect-video bg-black rounded-2xl overflow-hidden relative shadow-lg">
                             <div className="absolute inset-0 bg-black/10 z-10 pointer-events-none" />
                             {/* Mobile carousel video */}
-                            <iframe
-                                src={`https://player.vimeo.com/video/${item.videoId}?muted=1&autoplay=1&loop=1&playsinline=1&title=0&byline=0&portrait=0`}
-                                className="w-full h-full"
-                                allow="autoplay; fullscreen; picture-in-picture"
-                                allowFullScreen
-                                webkitallowfullscreen
-                                mozallowfullscreen
-                                frameBorder="0"
-                            ></iframe>
-                            <div className="absolute bottom-4 left-4 z-20 w-10 h-10 bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white pointer-events-none">
-                                <Play size={14} fill="currentColor" />
-                            </div>
+                            <VimeoPlayer
+                                videoId={item.videoId}
+                                variant="aspect"
+                                className="rounded-2xl"
+                            />
                         </div>
                         {/* Title */}
                         <div className="flex items-center space-x-3">

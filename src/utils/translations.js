@@ -8,7 +8,7 @@ export const translations = {
         hero_subtitle: "Uma agência criativa para quem pensa grande",
 
         // Approach
-        approach_eyebrow: "Nossa abordagem",
+        approach_eyebrow: "Nossa abordagem CARA",
         approach_title: "Da visão ao<br />lançamento.",
         approach_desc: "Layout intencional, tipografia forte e movimento suave para contar histórias que importam.",
         search_ideas_title: "Visão",
