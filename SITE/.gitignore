@@ -1,0 +1,56 @@
+# ===================================
+# Ignorar tudo da pasta pai (iCloud)
+# ===================================
+../*
+
+# Mas manter o projeto RIOSEMULLER
+!../SITE/
+
+# ===================================
+# Next.js
+# ===================================
+RIOSEMULLER/.next/
+RIOSEMULLER/out/
+RIOSEMULLER/build/
+RIOSEMULLER/dist/
+
+# ===================================
+# Dependências
+# ===================================
+RIOSEMULLER/node_modules/
+
+# ===================================
+# Ambiente
+# ===================================
+RIOSEMULLER/.env
+RIOSEMULLER/.env.local
+RIOSEMULLER/.env.development.local
+RIOSEMULLER/.env.test.local
+RIOSEMULLER/.env.production.local
+
+# ===================================
+# Sistema / Editor
+# ===================================
+.DS_Store
+**/.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ===================================
+# Logs
+# ===================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===================================
+# Misc
+# ===================================
+*.pem
